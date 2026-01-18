@@ -31,7 +31,9 @@ pipeline {
             steps {
                 dir('app') {
                     withSonarQubeEnv("${SONARQUBE_ENV}") {
-                        sh 'mvn sonar:sonar'
+                        sh '''
+                          mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+                        '''
                     }
                 }
             }
